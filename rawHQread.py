@@ -56,8 +56,8 @@ def open_pic(path):
     if not os.path.isfile(path):
         raise IOError('File not there man')    
     # Check that the files is a jpeg
-    main_path, ext = os.path.splitect(path)
-    extensions = ['jpeg','JPEG','jpg','JPG']
+    main_path, ext = os.path.splitext(path)
+    extensions = ['.jpeg','.JPEG','.jpg','.JPG']
     if ext not in extensions:
         raise ValueError(
             'File extension is not compatible with routine Must be in {}'.format(
