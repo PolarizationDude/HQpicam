@@ -48,7 +48,7 @@ def HQjpeg_to_raw(path_in):
     for byte in range(2):
         bayer_array[:, byte::3] |= ((bayer_array[:, 2::3] >> ((1 - byte) * 4))  & 0b1111)
     bayer_array = np.delete(bayer_array, np.s_[2::3], 1)
-    return [bayer_array]
+    return bayer_array
 
 def open_pic(path):
     """Check that file exists, is a jpeg, and open it"""
