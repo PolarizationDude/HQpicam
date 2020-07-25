@@ -41,7 +41,7 @@ def HQjpeg_to_raw(path_in):
     # Separate the image data from the header
     pic_jumble = file_data[32768:]
     # Convert the jumble of bits into uints
-    pic_flat = np.fromstring(pic_jumble, dtype=np.uint8)
+    pic_flat = np.frombuffer(pic_jumble, dtype=np.uint8)
     # Create array from things
     pic_array = pic_flat.reshape([(3040+16) , 6112])[:3040, :6084]
     bayer_array = pic_array.astype(np.uint16) << 4
